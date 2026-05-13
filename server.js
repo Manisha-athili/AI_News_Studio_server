@@ -4,15 +4,22 @@ import cors from "cors";
 import dotenv from "dotenv";
 import newsRoutes from "./routes/NewsRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js"
+
 dotenv.config();
 import connectDB from "./config/db.js";
-console.log('MONGO_URI:', process.env.MONGO_URI);
+
 const app = express();
 const Port = process.env.PORT;
-console.log(Port);
+
 
 //middleware
-app.use(cors());
+app.use(cors({
+    origin:[
+        "https://ai-news-studio-client.onrender.com/",
+        'http://localhost:5173',  
+    ],
+     credentials: true
+}));
 app.use(express.json());
 
 
