@@ -6,7 +6,7 @@ import newsRoutes from "./routes/NewsRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js"
 dotenv.config();
 import connectDB from "./config/db.js";
-
+console.log('MONGO_URI:', process.env.MONGO_URI);
 const app = express();
 const Port = process.env.PORT;
 console.log(Port);
@@ -31,7 +31,7 @@ app.get("/",(req,res)=>{
 const startServer = async() =>{
     await connectDB();
     app.listen(Port, ()=>{
-        console.log(`Server running on http://localhost:${PORT}`)
+        console.log(`Server running on http://localhost:${Port}`)
     })
 }
 
