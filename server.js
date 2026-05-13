@@ -14,12 +14,15 @@ const Port = process.env.PORT;
 
 //middleware
 app.use(cors({
-    origin:[
-        "https://ai-news-studio-client.onrender.com/",
-        'http://localhost:5173',  
-    ],
-     credentials: true
+  origin: [
+    "https://ai-news-studio-client.onrender.com",   // Your frontend URL
+    "http://localhost:3000",                        // For local development
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 app.use(express.json());
 
 
