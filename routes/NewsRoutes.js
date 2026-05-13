@@ -3,6 +3,6 @@ import getNews from "../controllers/newsController.js";
 
 const router = express.Router();
 
-router.post("/", getNews )
+router.get("/", getNews)
 
 export default router;
